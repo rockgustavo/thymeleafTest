@@ -8,11 +8,16 @@ import org.springframework.web.servlet.ModelAndView;
 @RestController
 @RequestMapping(value = "/")
 public class HomeController {
-	ModelAndView mv = new ModelAndView();
 
 	@GetMapping("/")
+	public ModelAndView index() {
+		return new ModelAndView("/home");
+	}
+	
+	@GetMapping("/home")
 	public ModelAndView home() {
-		mv.setViewName("/layout");
-		return mv;
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("/home");
+	    return mv;
 	}
 }
